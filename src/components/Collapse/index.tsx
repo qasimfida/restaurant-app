@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface Product {
     id: number;
@@ -14,10 +14,11 @@ interface IProps {
 }
 
 const Collapse = ({ title, quantity, index, openIndex, onOpen, products }: IProps) => {
-  const [isOpen, setIsOpen] = useState(openIndex === index);
-
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+useEffect(()=>{
+  setIsOpen(openIndex === index)
+},[openIndex])
   const handleToggle = () => {
-    setIsOpen(!isOpen);
     if (onOpen) {
       onOpen(index);
     }

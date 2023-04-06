@@ -6,6 +6,7 @@ import Hero from '@/components/Hero';
 import Footer from '@/components/Footer';
 import Collapse from '@/components/Collapse';
 import { useState } from 'react';
+import Button from '@/components/Button';
 
 const inter = Inter({ subsets: ['latin'] });
 const menus = [
@@ -39,6 +40,9 @@ export default function Home() {
             price={9.0}
           />
           <Footer className="" /> 
+         { menus.map((menu, index) => <Button key={menu.title} onClick={()=>{
+          handleOpen(index)
+         }} > {menu.title} </Button>)}
           {menus.map((menu, index) => (
             <Collapse  key={index}
             title={menu.title}
