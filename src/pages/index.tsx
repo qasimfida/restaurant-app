@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import WithLayout from '@/components/WithLayout';
 import HomeContainer from '@/containers/Home';
 
@@ -18,4 +19,15 @@ export default function Home() {
       </main>
     </>
   );
+}
+
+
+export async function getStaticProps({ locale }:any) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, [
+        'common',
+      ])),
+    },
+  }
 }

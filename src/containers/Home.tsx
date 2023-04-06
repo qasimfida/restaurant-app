@@ -1,7 +1,6 @@
 import Carousel from '@/components/Carousel';
 import Collapse from '@/components/Collapse';
 import Hero from '@/components/Hero';
-import { MenuContext } from '@/contexts/MenuContext';
 import React, { useContext, useState } from 'react';
 
 const menus = [
@@ -24,13 +23,12 @@ const menus = [
 
 const HomeContainer = () => {
   const [openIndex, setOpenIndex] = useState(1);
-  const { state, setState } = useContext(MenuContext);
 
   const handleOpen = (index: number) => {
     setOpenIndex(index);
   };
   return (
-    <div className="bg-full-dark min-h-screen">
+    <div className="min-h-screen bg-full-dark">
       <Hero className="" />
       <div className="px-4">
         {menus.map((menu, index) => (
