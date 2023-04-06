@@ -28,7 +28,6 @@ const Collapse = ({
   const [isOpen, setIsOpen] = useState(openIndex === index);
 
   const handleToggle = () => {
-    setIsOpen(!isOpen);
     if (onOpen) {
       onOpen(index);
     }
