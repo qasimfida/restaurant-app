@@ -30,6 +30,7 @@ const Collapse = ({
   const handleToggle = () => {
     if (onOpen) {
       onOpen(index);
+      setIsOpen(!isOpen);
     }
   };
 

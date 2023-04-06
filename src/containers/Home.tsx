@@ -28,20 +28,22 @@ const HomeContainer = () => {
     setOpenIndex(index);
   };
   return (
-    <div className="min-h-screen px-8 bg-full-dark">
+    <div className="min-h-screen bg-full-dark">
       <Hero className="" />
-      {menus.map((menu, index) => (
-        <Collapse
-          key={index}
-          title={menu.title}
-          quantity={menu.products.length}
-          index={index}
-          openIndex={openIndex}
-          onOpen={handleOpen}
-          products={menu.products}
-        />
-      ))}
-      <Carousel />
+      <div className="px-4">
+        {menus.map((menu, index) => (
+          <Collapse
+            key={index}
+            title={menu.title}
+            quantity={menu.products.length}
+            index={index}
+            openIndex={openIndex}
+            onOpen={handleOpen}
+            products={menu.products}
+          />
+        ))}
+        <Carousel />
+      </div>
     </div>
   );
 };
