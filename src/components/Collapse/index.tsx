@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ProductCard from '../ProductCard';
 
 interface Product {
@@ -25,7 +25,11 @@ const Collapse = ({
   onOpen,
   products,
 }: IProps) => {
-  const [isOpen, setIsOpen] = useState(openIndex === index);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(()=>{
+    setIsOpen(openIndex === index)
+  },[openIndex])
 
   const handleToggle = () => {
     if (onOpen) {
@@ -67,7 +71,7 @@ const Collapse = ({
       </div>
       {isOpen && (
         <div className="px-4">
-          <div className="columns-1 sm:columns-2 border-b-0 border-border sm:border-b gap-10">
+          <div className="gap-10 border-b-0 columns-1 sm:columns-2 border-border sm:border-b">
             {products.map((product) => (
               <ProductCard
                 className="w-full"
@@ -75,6 +79,7 @@ const Collapse = ({
                 title={product.title}
                 calories={product.calories}
                 price={product.price}
+                id={String(product.id)}
               />
             ))}
           </div>

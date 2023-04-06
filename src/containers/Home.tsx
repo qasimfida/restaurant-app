@@ -1,6 +1,8 @@
+import Button from '@/components/Button';
 import Carousel from '@/components/Carousel';
 import Collapse from '@/components/Collapse';
 import Hero from '@/components/Hero';
+import { cn } from '@/helpers/cn';
 import React, { useContext, useState } from 'react';
 
 const menus = [
@@ -31,9 +33,13 @@ const HomeContainer = () => {
     <div className="min-h-screen bg-full-dark">
       <Hero className="" />
       <div className="px-4">
+        <div className="py-4" >
+          {menus.map((menu, index) => (<div onClick={()=>handleOpen(index)} className={cn`cursor-pointer border-b-2 mr-4 py-4 px-2 inline text-white hover:border-primary ${index === openIndex ? 'border-primary': 'border-transparent'}`} key={menu.title} >{menu.title}</div>))}
+        </div>
+        <Carousel />
         {menus.map((menu, index) => (
           <Collapse
-            key={index}
+            key={menu.title}
             title={menu.title}
             quantity={menu.products.length}
             index={index}
@@ -42,7 +48,6 @@ const HomeContainer = () => {
             products={menu.products}
           />
         ))}
-        <Carousel />
       </div>
     </div>
   );

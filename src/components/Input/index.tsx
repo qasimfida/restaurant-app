@@ -2,9 +2,9 @@ import React from 'react';
 import { LocationIcon } from '../Icons';
 
 interface IProps {
-  className: string;
-  icon: boolean;
-  placeholder: string;
+  className?: string;
+  icon?: boolean;
+  placeholder?: string;
 }
 
 const Input = (props: IProps) => {

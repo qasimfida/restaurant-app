@@ -27,26 +27,26 @@ const WithLayout = (props) => {
           href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css"
         />
       </Head>
-      <div className="sm:container sm:mx-auto">
+      <div className="mx-auto max-w-[640pt]">
         <Navbar handleOpen={handleOpen} />
         {props.children}
         <Modal isOpen={isOpen} handleClose={handleClose}>
-          <div className="columns-1 sm:columns-2 gap-4 mb-6">
+          <div className="gap-4 mb-6 columns-1 sm:columns-2">
             <Input
               icon
               className=""
               placeholder="Enter your location name (optional)"
             />
           </div>
-          <div className="w-full text-center border-b border-grey my-4 relative flex justify-center">
+          <div className="relative flex justify-center w-full my-4 text-center border-b border-grey">
             <span className="text-grey bg-dark absolute px-4 -top-[12px]">
               Or
             </span>
           </div>
-          <h3 className="text-lg text-white font-bold mb-5">
+          <h3 className="mb-5 text-lg font-bold text-white">
             Choose the nearest branch
           </h3>
-          <div className="columns-1 sm:columns-2 gap-4">
+          <div className="gap-4 columns-1 sm:columns-2">
             {branches.map((branch) => (
               <Button
                 onClick={handleClose}
@@ -58,7 +58,7 @@ const WithLayout = (props) => {
               </Button>
             ))}
           </div>
-          <div className="text-center mt-4">
+          <div className="mt-4 text-center">
             <Button
               onClick={handleClose}
               variant="secondary"

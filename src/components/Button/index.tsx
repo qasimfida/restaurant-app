@@ -1,11 +1,13 @@
 import React, { ButtonHTMLAttributes } from 'react';
 import { RightArrowIcon } from '../Icons';
+import { cn } from '@/helpers/cn';
 
 interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'danger'; // Define button variants
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   onClick?: () => void;
+  icon?: boolean
 }
 
 const Button = ({
@@ -13,6 +15,7 @@ const Button = ({
   variant = 'primary',
   className,
   onClick,
+  icon,
   ...rest
 }: IProps) => {
   const baseClasses = 'rounded-lg py-3 px-4 font-normal';
@@ -37,12 +40,12 @@ const Button = ({
 
   return (
     <button
-      className={`${baseClasses} ${variantClasses} ${className}`}
+      className={cn`${baseClasses} ${variantClasses} ${className}`}
       onClick={onClick}
       {...rest}
     >
       {children}
-      {variant === 'danger' ? <RightArrowIcon /> : ''}
+      {icon && <RightArrowIcon /> }
     </button>
   );
 };

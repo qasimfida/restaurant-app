@@ -1,8 +1,5 @@
-import { ShareIcon } from '@/components/Icons';
-import Input from '@/components/Input';
 import ProductDetailsContainer from '@/containers/ProductDetails';
 import Head from 'next/head';
-import Image from 'next/image';
 import React from 'react';
 
 const ProductDetails = () => {
@@ -14,7 +11,7 @@ const ProductDetails = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main className='mx-auto max-w-[640pt]' >
         <ProductDetailsContainer />
       </main>
     </>
