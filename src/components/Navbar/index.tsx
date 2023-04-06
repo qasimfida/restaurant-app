@@ -9,7 +9,7 @@ interface IProps {
 const Navbar = ({ className }: IProps) => {
   return (
     <header
-      className={`py-[10px] px-[25px] flex justify-between items-center ${className}`}
+      className={`py-[10px] px-[25px] flex justify-between items-center bg-full-dark ${className}`}
     >
       <Button className="">Ash Shara'i</Button>
       <div className="flex items-center">

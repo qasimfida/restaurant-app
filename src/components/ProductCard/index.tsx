@@ -6,11 +6,14 @@ interface IProps {
   title: string;
   calories: number;
   price: number;
+  className: string;
 }
 
-const ProductCard = ({ image, title, calories, price }: IProps) => {
+const ProductCard = ({ image, title, calories, price, className }: IProps) => {
   return (
-    <div className="overflow-hidden">
+    <div
+      className={`overflow-hidden border-b py-4 border-border sm:border-b-0 ${className}`}
+    >
       <div className="flex justify-between items-center">
         <div className="">
           <div className="tracking-wide text-sm text-light">{title}</div>

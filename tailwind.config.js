@@ -16,7 +16,7 @@ module.exports = {
         'full-dark': '#1b1c21',
         primary: '#f13d5d',
         grey: '#a0a0a0',
-        hr: '#37383d',
+        border: '#37383d',
       },
       backgroundImage: {
         banner: "url('/banner.jpg')",
