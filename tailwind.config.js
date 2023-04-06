@@ -17,6 +17,10 @@ module.exports = {
         primary: '#f13d5d',
         grey: '#a0a0a0',
         border: '#37383d',
+        red: {
+          DEFAULT: '#ff1744',
+          600: '#af253e',
+        },
       },
       backgroundImage: {
         banner: "url('/banner.jpg')",

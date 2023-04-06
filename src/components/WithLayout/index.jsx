@@ -3,10 +3,22 @@ import Footer from '../Footer';
 import Navbar from '../Navbar';
 import Modal from '../Modal';
 import { useState } from 'react';
+import Input from '../Input';
+import Button from '../Button';
 const WithLayout = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleOpen = () => setIsOpen(true);
   const handleClose = () => setIsOpen(false);
+  const branches = [
+    { id: 1, title: 'Mujahideen' },
+    { id: 2, title: "Al Mu'aisem" },
+    { id: 3, title: 'Al Awali' },
+    { id: 4, title: 'Az Zahir' },
+    { id: 5, title: 'Walyal Ahd' },
+    { id: 6, title: 'An Nawwariyyah' },
+    { id: 7, title: "Ash Shara'i" },
+    { id: 8, title: 'Al-shawqeih' },
+  ];
   return (
     <>
       <Head>
@@ -16,16 +28,46 @@ const WithLayout = (props) => {
         />
       </Head>
       <div className="sm:container sm:mx-auto">
-        <Navbar />
+        <Navbar handleOpen={handleOpen} />
         {props.children}
-        <button
-          type="button"
-          className="px-4 py-2 font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-          onClick={handleOpen}
-        >
-          Open Modal
-        </button>
-        <Modal isOpen={isOpen} handleClose={handleClose} />
+        <Modal isOpen={isOpen} handleClose={handleClose}>
+          <div className="columns-1 sm:columns-2 gap-4 mb-6">
+            <Input
+              icon
+              className=""
+              placeholder="Enter your location name (optional)"
+            />
+          </div>
+          <div className="w-full text-center border-b border-grey my-4 relative flex justify-center">
+            <span className="text-grey bg-dark absolute px-4 -top-[12px]">
+              Or
+            </span>
+          </div>
+          <h3 className="text-lg text-white font-bold mb-5">
+            Choose the nearest branch
+          </h3>
+          <div className="columns-1 sm:columns-2 gap-4">
+            {branches.map((branch) => (
+              <Button
+                onClick={handleClose}
+                key={branch.id}
+                variant="danger"
+                className="px-16 mb-4"
+              >
+                {branch.title}
+              </Button>
+            ))}
+          </div>
+          <div className="text-center mt-4">
+            <Button
+              onClick={handleClose}
+              variant="secondary"
+              className="!px-16"
+            >
+              Skip
+            </Button>
+          </div>
+        </Modal>
         <Footer />
       </div>
     </>

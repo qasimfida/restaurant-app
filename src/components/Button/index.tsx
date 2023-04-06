@@ -1,7 +1,8 @@
 import React, { ButtonHTMLAttributes } from 'react';
+import { RightArrowIcon } from '../Icons';
 
 interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary'; // Define button variants
+  variant?: 'primary' | 'secondary' | 'danger'; // Define button variants
   className?: string;
   children: React.ReactNode;
   onClick?: () => void;
@@ -14,7 +15,7 @@ const Button = ({
   onClick,
   ...rest
 }: IProps) => {
-  const baseClasses = 'rounded-lg py-2 px-4 font-bold';
+  const baseClasses = 'rounded-lg py-3 px-4 font-normal';
   let variantClasses = '';
 
   // Determine which variant to apply
@@ -23,7 +24,11 @@ const Button = ({
       variantClasses = 'bg-primary hover:bg-primary-600 text-white';
       break;
     case 'secondary':
-      variantClasses = 'bg-gray-500 hover:bg-gray-600 text-white';
+      variantClasses = 'bg-white hover:bg-gray-200 text-dark';
+      break;
+    case 'danger':
+      variantClasses =
+        'bg-red hover:bg-red-600 text-white w-full flex justify-between';
       break;
     default:
       variantClasses = 'bg-blue-500 hover:bg-blue-600 text-white';
@@ -37,6 +42,7 @@ const Button = ({
       {...rest}
     >
       {children}
+      {variant === 'danger' ? <RightArrowIcon /> : ''}
     </button>
   );
 };

@@ -1,16 +1,23 @@
 import React from 'react';
+import { LocationIcon } from '../Icons';
 
 interface IProps {
   className: string;
+  icon: boolean;
+  placeholder: string;
 }
 
 const Input = (props: IProps) => {
-  const { className, ...rest } = props;
+  const { className, icon, placeholder, ...rest } = props;
   return (
-    <input
-      className={`${className} border-2 border-grey-500 placeholder-grey contrast-more:border-slate-400 contrast-more:placeholder-slate-500 w-full h-14 rounded-lg bg-dark`}
-      {...rest}
-    />
+    <div className="relative flex">
+      <input
+        className={`${className} border border-grey-500 w-full px-3 h-14 rounded-lg bg-dark`}
+        placeholder={placeholder}
+        {...rest}
+      />
+      {icon && <LocationIcon className="absolute right-2 top-4" />}
+    </div>
   );
 };
 
